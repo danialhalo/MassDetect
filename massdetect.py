@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# Coded by https://twitter.com/DanialHalo
+
 import subprocess
 import argparse
 import time
