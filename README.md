@@ -59,3 +59,67 @@ options:
   -o OUTPUT, --output OUTPUT
                         Output file for storing the scan results
 ```
+
+# Running MassDetect
+### Single IP Scan
+The IP or single subnet can be provided with `-t flag` for single site scan
+```
+sudo python3 massdetect.py -t 192.0.0.1
+```
+
+### File Input
+The `-f flag` allows MassDetect to read a file containing multiple IPs or subnets for simultaneous scanning.
+```
+sudo python3 massdetect.py -f ips.txt
+```
+
+### File Output
+For the output file `-o flag` can be used for defining the output file name otherwise output will automatically saved into the file name **scan_results.txt**.
+```
+sudo python3 massdetect.py -f ips.txt -o result.txt
+```
+
+### Specifing Ports
+For specifing single port or a list of ports `-p` can be used.
+```
+sudo python3 massdetect.py -f ips.txt -p 80,22
+```
+Similarly `--top-ports` flag can be used for scanning top ports.
+```
+sudo python3 massdetect.py -f ips.txt --top-ports 100
+```
+For scanning list of common web server ports used `--web-ports` flag.
+```
+sudo python3 massdetect.py -f ips.txt --web-ports 100
+```
+
+### Service and Version Detection
+For running nmap on open ports detected by masscan `--nmap` flag should be used 
+```
+sudo python3 massdetect.py -f ips.txt -p 80 --nmap
+```
+### Speed scan
+Masscan speed can be adjust by using the `--rate` flag default is set to 100000 
+```
+sudo python3 massdetect.py -f ips.txt -p 80 --nmap --rate 20000
+```
+Similarly for nmap `-T1, T2, T3, T4 and T5` flags can be used. Default is set to -T4
+```
+sudo python3 massdetect.py -f ips.txt -p 80 --nmap --rate 20000 -T5
+```
+
+
+# Contributing
+Contributions to MassDetect are always welcome. Whether it's feature enhancements, bug fixes, or documentation improvements, every bit of help is appreciated.
+
+
+# License
+`MassDetect` is distributed under [MIT License](https://github.com/danialhalo/SqliSniper/blob/main/LICENSE)
+
+---
+
+<div align="center">
+
+`MassDetect` is made in <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" alt="python" height="20px" width="20px"> with lots of 💙 by [@Muhammad Danial](https://twitter.com/DanialHalo).
+
+</div>
